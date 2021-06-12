@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  //to initialize code, like http etc
   ngOnInit(): void {
   }
 
