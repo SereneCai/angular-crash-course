@@ -4,6 +4,12 @@ import {Observable} from 'rxjs';
 import {Task} from '../Task'; //import the interface
 // import {TASKS} from '../mock-tasks'; - no longer required, data coming from server
 
+const httpOptions ={
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,5 +31,10 @@ export class TaskService {
     //make a delete request to server to delete
     const url = `${this.apiUrl}/${task.id}`; //setting the url for delete req
     return this.http.delete<Task>(url);
+  }
+
+  updateTaskReminder(task:Task): Observable<Task>{
+    const url = `${this.apiUrl}/${task.id}`; //setting the url for put req
+    return this.http.put<Task>(url, task, httpOptions);
   }
 }
