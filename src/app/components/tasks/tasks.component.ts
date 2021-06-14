@@ -17,7 +17,7 @@ export class TasksComponent implements OnInit {
   //fires off right away
   ngOnInit(): void {
     //where this.tasks is an array you set
-    //usually observable is used for server related sinetad of this.tasks = this.taskService.getTasks(); format
+    //usually observable is used for server related instead of this.tasks = this.taskService.getTasks(); format
     this.taskService.getTasks().subscribe((tasks) =>
       this.tasks = tasks);
     //for observable, have to use subscribe to 'keep watch' of the tasks
@@ -27,10 +27,12 @@ export class TasksComponent implements OnInit {
   deleteTask(task: Task){
     this.taskService.deleteTask(task).subscribe(() =>
       this.tasks = this.tasks.filter(t => t.id !== task.id));
+    //will show tasks that do not belong to the same id as the deleted task
   }
 
   toggleReminder(task: Task){
-    task.reminder = !task.reminder;
+    task.reminder = !task.reminder; //double click triggers the true/false reminder status
+    //e.g. double click turns false to true --> reminder green activates
    this.taskService.updateTaskReminder(task).subscribe();
   }
 

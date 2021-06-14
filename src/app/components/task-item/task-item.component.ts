@@ -26,7 +26,11 @@ export class TaskItemComponent implements OnInit {
 
   onToggle(task: Task){
     this.onToggleReminder.emit(task);
-    //function is at main task
+    //chaining of events in a way
+    //task-items has the onToggle event at double click --> this emits task to task component.ts
+    //task component has the function of toggleReminder, where reminder is set to false/true as well
+    // as updates tasks using task.services.ts (updateReminder function)
+
   }
 
 }

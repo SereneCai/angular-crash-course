@@ -10,10 +10,13 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import {RouterModule, Routes} from "@angular/router";
+import { AboutComponent } from './components/about/about.component';
+import { FooterComponent } from './components/footer/footer.component';
 //router can be setup at the start by default if chosen as an option
 
 const appRoutes : Routes =[
-  {path: '', component: TasksComponent}
+  {path: '', component: TasksComponent},
+  {path: 'about', component: AboutComponent}
 ]
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ const appRoutes : Routes =[
     ButtonComponent,
     TasksComponent,
     TaskItemComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    AboutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
