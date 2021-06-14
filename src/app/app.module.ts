@@ -9,7 +9,12 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddTaskComponent } from './components/add-task/add-task.component';
+import {RouterModule, Routes} from "@angular/router";
+//router can be setup at the start by default if chosen as an option
 
+const appRoutes : Routes =[
+  {path: '', component: TasksComponent}
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +28,8 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes, {enableTracing: true})// enable tracing helps to debug the route for errors. it is optional
   ],
   providers: [],
   bootstrap: [AppComponent]

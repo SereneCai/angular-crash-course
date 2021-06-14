@@ -6,7 +6,7 @@ import {Observable, Subject} from "rxjs";
 })
 export class UiService {
 
-  private showAddTask : boolean = false;
+  private showAddTask : boolean = false; // default value for toggling
   private subject = new Subject<any>();
 
   constructor() { }
@@ -16,7 +16,7 @@ export class UiService {
   toggleAddTask(): void{
     this.showAddTask = !this.showAddTask; //stating the state of the add task, true/false
     this.subject.next(this.showAddTask);
-    //Setting the current state of the add task - true/false
+    //Setting the current state/subject of the add task - true/false
   }
 
   onToggle(): Observable<any>{
